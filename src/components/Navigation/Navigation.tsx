@@ -21,6 +21,7 @@ const Navigation = () => {
 					</Link>
 				)}
 			</nav>
+			<div className='navigation__out'>{isAuth && <span>Log out</span>}</div>
 		</div>
 	);
 };
