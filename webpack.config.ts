@@ -9,7 +9,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 // @ts-ignore
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
-import {CleanWebpackPlugin} from 'clean-webpack-plugin';
+// import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -79,7 +79,7 @@ const config: Configuration = {
 		new ESLintPlugin({
 			extensions: ['js', 'jsx', 'ts', 'tsx'],
 		}),
-		new CleanWebpackPlugin(),
+		// new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin(),
 	],
 
