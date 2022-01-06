@@ -1,8 +1,8 @@
 import React from 'react';
-
+import './userPage.scss';
 const UserPage = () => {
 	return (
-		<div>
+		<div className='userPage'>
 			<h1>User page</h1>
 		</div>
 	);

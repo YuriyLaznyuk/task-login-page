@@ -1,0 +1,21 @@
+.navigation{
+  height: 100px;
+  background: bisque;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__nav{
+    &-link{
+      margin: 0 10px;
+      font-size: 24px;
+      border-bottom: 4px solid bisque;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+.active{
+  border-bottom: 4px solid red;
+}
