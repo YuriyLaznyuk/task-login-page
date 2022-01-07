@@ -1,17 +1,9 @@
 import {Configuration, HotModuleReplacementPlugin} from 'webpack';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import path from 'path';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 // import {CleanWebpackPlugin} from 'clean-webpack-plugin';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 const config: Configuration = {
 	// mode: "development",
