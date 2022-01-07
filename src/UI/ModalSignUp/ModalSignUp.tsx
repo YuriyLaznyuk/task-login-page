@@ -8,7 +8,7 @@ type userTypeSignup = {
 	name: string;
 };
 const ModalSignUp = () => {
-	const {signUpModal} = useAction();
+	const {signUpModal, signUpUser} = useAction();
 	const [user, setUser] = useState<userTypeSignup>({
 		email: '',
 		password: '',
@@ -75,6 +75,7 @@ const ModalSignUp = () => {
 				/>
 				<div>
 					<button
+						onClick={() => signUpUser(user)}
 						className='modalSignUp__container-button'
 						disabled={!(signUpPassword && signUpEmail && signUpName)}>
 						SEND
