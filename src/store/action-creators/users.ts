@@ -35,9 +35,10 @@ export const signUpUser =
 			const json = await response.json();
 			alert(json.message);
 			if (json.message === 'user create') {
-				dispatch({type: UserActionType.SET_USER, payload: json.user});
+				dispatch({type: UserActionType.SIGN_UP, payload: false});
 			}
 		} catch (e) {
 			alert(e);
+			dispatch({type: UserActionType.SIGN_UP, payload: false});
 		}
 	};
