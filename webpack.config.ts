@@ -1,15 +1,15 @@
 import {Configuration, HotModuleReplacementPlugin} from 'webpack';
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 import ESLintPlugin from 'eslint-webpack-plugin';
 // import {CleanWebpackPlugin} from 'clean-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config: Configuration = {
 	// mode: "development",
 	entry: './src/index.tsx',
 	output: {
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(__dirname, 'dist'),
 		// filename: "[name].[contenthash].js",
 		filename: 'index.bundle.js',
 		publicPath: '/',
@@ -77,7 +77,7 @@ const config: Configuration = {
 
 	devtool: 'inline-source-map',
 	devServer: {
-		static: path.join(__dirname, 'build'),
+		static: path.join(__dirname, 'dist'),
 		historyApiFallback: true,
 		port: 4040,
 		open: true,

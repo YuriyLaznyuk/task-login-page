@@ -7,7 +7,7 @@ type userTypeLogin = {
 	password: string;
 };
 const ModalLogin = () => {
-	const {logInModal} = useAction();
+	const {logInModal, loginUser} = useAction();
 	const [user, setUser] = useState<userTypeLogin>({email: '', password: ''});
 	const loginEmail: boolean = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(
 		user.email,
@@ -53,6 +53,7 @@ const ModalLogin = () => {
 				/>
 				<div>
 					<button
+						onClick={() => loginUser(user)}
 						className='modalLogin__container-button'
 						disabled={!(loginPassword && loginEmail)}>
 						SEND

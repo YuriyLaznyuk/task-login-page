@@ -3,8 +3,10 @@ import {Link, useLocation} from 'react-router-dom';
 import './navigation.scss';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../store/reducers';
+import {useAction} from '../../hooks/useAction';
 
 const Navigation = () => {
+	const {logout} = useAction();
 	const {pathname} = useLocation();
 	const active = (pathname: string, path: string): string =>
 		pathname === path ? 'navigation__nav-link active' : 'navigation__nav-link';
@@ -21,7 +23,9 @@ const Navigation = () => {
 					</Link>
 				)}
 			</nav>
-			<div className='navigation__out'>{isAuth && <span>Log out</span>}</div>
+			<div className='navigation__out'>
+				{isAuth && <span onClick={() => logout()}>Log out</span>}
+			</div>
 		</div>
 	);
 };

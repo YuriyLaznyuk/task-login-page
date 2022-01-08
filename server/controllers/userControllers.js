@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 exports.createUser = async (req, res) => {
 	try {
@@ -36,8 +37,32 @@ exports.loginUser = async (req, res) => {
 		if (!validPassword) {
 			return res.status(400).json({message: 'invalid password'});
 		}
+		const token = jwt.sign({id: user.id}, process.env.SECRET_KEY, {
+			expiresIn: 180,
+		});
 		res.status(201).json({
 			message: 'success',
+			token,
+			user: {
+				name: user.name,
+				email: user.email,
+			},
+		});
+	} catch (e) {
+		res.status(400).json({
+			message: 'fail',
+			error: e.message,
+		});
+	}
+};
+exports.authUser = async (req, res) => {
+	try {
+		const user = await User.findOne({_id: req.user.id});
+		const token = jwt.sign({id: user.id}, process.env.SECRET_KEY, {
+			expiresIn: 180,
+		});
+		res.status(201).json({
+			token,
 			user: {
 				name: user.name,
 				email: user.email,
