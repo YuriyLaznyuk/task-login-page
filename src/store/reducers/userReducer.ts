@@ -2,7 +2,7 @@ import {IUserState, UserAction, UserActionType} from '../../types/user';
 import {IUser} from '../../models/IUser';
 
 const initialState: IUserState = {
-	isAuth: true,
+	isAuth: false,
 	user: {} as IUser,
 	logIn: false,
 	signUp: false,

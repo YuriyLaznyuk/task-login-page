@@ -9,10 +9,10 @@ const userRouters = require('./routes/userRouters');
 const DB = process.env.DATABASE;
 const PORT = process.env.PORT || 7700;
 app.use(express.json());
-app.use(express.static(path.resolve('build')));
+app.use(express.static(path.resolve('dist')));
 
 app.get('*', (req, res) => {
-	res.sendFile(path.resolve('build', 'index.html'));
+	res.sendFile(path.resolve('dist', 'index.html'));
 });
 
 app.use(userRouters);
